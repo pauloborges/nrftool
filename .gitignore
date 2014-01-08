@@ -1,0 +1,7 @@
+*.pyc
+JLink.log
+__pycache__
+dist
+*.egg-info
+*.sublime-project
+*.sublime-workspace
