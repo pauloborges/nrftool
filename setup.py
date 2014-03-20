@@ -7,12 +7,19 @@ import sys
 from setuptools import setup, find_packages
 import nrftool
 
-if "publish" in sys.argv:
+def clean():
+	os.system("rm -rf dist *.egg-info")
+
+def publish():
 	os.system("python setup.py sdist upload")
+
+if "publish" in sys.argv:
+	clean()
+	publish()
 	sys.exit()
 
 elif "clean" in sys.argv:
-	os.system("rm -rf dist *.egg-info")
+	clean()
 	sys.exit()
 
 setup(
