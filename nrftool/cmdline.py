@@ -13,11 +13,11 @@ import nrftool
 from nrftool.command import Flash, Erase
 
 USAGE_FLASH = """
-\t%(prog)s flash FIRMWARE ADDRESS [--verbose]\
+\t%(prog)s [--verbose] [--jlinkexe PATH_JLINKEXE] flash FIRMWARE ADDRESS\
 """
 
 USAGE_ERASE = """
-\t%(prog)s erase [--verbose]\
+\t%(prog)s [--verbose] [--jlinkexe PATH_JLINKEXE] erase\
 """
 
 USAGE = USAGE_FLASH + USAGE_ERASE
@@ -47,6 +47,11 @@ def build_parser():
 		help="print the output from JLinkExe"
 	)
 
+	parser.add_argument("--jlinkexe",
+		action="store",
+		help="path to JLinkExe"
+	)
+
 	subparsers = parser.add_subparsers()
 
 	flash_cmd = subparsers.add_parser("flash",
@@ -69,9 +74,10 @@ def build_parser():
 
 def build_command(args):
 	if args.command == "flash":
-		return Flash(args.firmware, args.address, verbose=args.verbose)
+		return Flash(args.firmware, args.address, verbose=args.verbose,
+					 jlinkexe=args.jlinkexe)
 	elif args.command == "erase":
-		return Erase(verbose=args.verbose)
+		return Erase(verbose=args.verbose, jlinkexe=args.jlinkexe)
 
 def main():
 	parser = build_parser()

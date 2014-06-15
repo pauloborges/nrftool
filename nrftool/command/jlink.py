@@ -14,7 +14,6 @@ from .base import Command
 
 __all__ = ["ExecJLinkScriptCommand"]
 
-JLINK		= "JLinkExe"
 SCRIPT_DIR	= os.path.join(os.path.dirname(os.path.realpath(__file__)),
 						"../script")
 
@@ -36,7 +35,7 @@ class ExecJLinkScriptCommand(Command):
 			script = generate_abs_path(script)
 
 		try:
-			output = subprocess.check_output([JLINK, script],
+			output = subprocess.check_output([self.jlinkexe, script],
 				universal_newlines=True,
 				stderr=subprocess.STDOUT
 			)
