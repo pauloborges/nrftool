@@ -7,7 +7,7 @@ Check LICENSE for details.
 """
 
 NAME			= "nrftool"
-VERSION			= "0.1.0"
+VERSION			= "0.1.1"
 AUTHOR			= "Paulo Borges"
 AUTHOR_EMAIL		= "pauloborgesfilho@gmail.com"
 URL			= "https://github.com/pauloborges/nrftool"
