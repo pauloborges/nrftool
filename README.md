@@ -8,7 +8,6 @@ Dependencies
 
 * J-Link programmer or J-Link OB microcontroller (on-board)
 * [Segger's JLink software](http://www.segger.com/jlink-software.html) (`V4.80`)
-* `JLinkExe` in your `PATH`
 
 Supported devices
 -----------------
@@ -25,3 +24,7 @@ To flash new firmware:
 To erase current firmware:
 
 	$ nrftool erase [--verbose]
+
+If `JLinkExe` can't be found in your `PATH`, it can be specified using `--jlinkexe` option:
+
+	$ nrftool --jlinkexe path/to/your/JLinkExe erase
